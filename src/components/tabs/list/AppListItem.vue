@@ -1,14 +1,20 @@
 <template>
-  <div class="flex justify-between px-4 py-2 border-b border-gray-200">
+  <div
+    class="flex justify-between px-4 py-2 border-b border-gray-200"
+    :class="{ 'opacity-30': pending }"
+  >
     <div class="flex-1">
-      <p>Lorem Ipsum</p>
+      <p>{{ item.title }}</p>
       <p>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
+        {{ item.description }}
       </p>
     </div>
     <div class="basis-12 flex justify-center items-center">
-      <button class="transition-all duration-300 hover:scale-110">
+      <button
+        class="transition-all duration-300 hover:scale-110"
+        @click="emits('handleDelete', item.id)"
+        :disabled="pending"
+      >
         <delete-icon />
       </button>
     </div>
@@ -17,6 +23,9 @@
 
 <script setup>
 import DeleteIcon from '@/components/icons/DeleteIcon.vue'
+
+const { item, pending } = defineProps({ item: { type: Object }, pending: { type: Boolean } })
+const emits = defineEmits(['handleDelete'])
 </script>
 
 <style lang="scss" scoped></style>

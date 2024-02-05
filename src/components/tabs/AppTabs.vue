@@ -2,16 +2,22 @@
   <div>
     <ul class="flex flex-wrap mb-8 gap-8">
       <li
-        class="font-semibold text-xl text-gray-500 border-b-2 cursor-pointer"
+        class="font-semibold text-xl border-b-2 cursor-pointer"
         v-for="(title, index) in tabsTitle"
         :key="index"
         @click.prevent="selectedTab = index"
-        :class="selectedTab === index ? 'text-[#11559E] border-[#11559E]' : 'border-transparent'"
+        :class="
+          selectedTab === index
+            ? 'text-[#11559E] border-[#11559E]'
+            : 'text-gray-500 border-transparent'
+        "
       >
         {{ title }}
       </li>
     </ul>
-    <component :is="tabsContent[selectedTab]"></component>
+    <keep-alive>
+      <component :is="tabsContent[selectedTab]"></component>
+    </keep-alive>
   </div>
 </template>
 

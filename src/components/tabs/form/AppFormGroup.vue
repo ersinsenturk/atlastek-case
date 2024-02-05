@@ -7,11 +7,10 @@
         placeholder="Açıklama giriniz"
         :class="inputClasses"
         class="resize-none h-36"
-        required
       ></textarea>
     </template>
     <template v-else>
-      <input type="text" :name="name" placeholder="Başlık giriniz" required :class="inputClasses" />
+      <input type="text" :name="name" placeholder="Başlık giriniz" :class="inputClasses" />
     </template>
   </div>
 </template>
