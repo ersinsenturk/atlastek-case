@@ -18,5 +18,6 @@
 
 <script setup>
 const { type, label, name } = defineProps(['type', 'label', 'name'])
-const inputClasses = 'block px-4 py-3 w-full border border-gray-200 rounded-lg outline-none'
+const inputClasses =
+  'block px-4 py-3 w-full border border-gray-200 rounded-lg outline-none focus:border-gray-300'
 </script>

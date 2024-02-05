@@ -1,11 +1,11 @@
 <template>
-  <main class="bg-[#F6F7F9] text-gray-800 h-screen flex justify-center items-center">
+  <main class="bg-[#F6F7F9] text-gray-800 h-screen flex justify-center pt-8 md:pt-24">
     <section class="w-[496px] max-w-full px-4 mx-auto">
-      <app-form />
+      <app-tabs />
     </section>
   </main>
 </template>
 
 <script setup>
-import AppForm from '@/components/tabs/form/AppForm.vue'
+import AppTabs from '@/components/tabs/AppTabs.vue'
 </script>
