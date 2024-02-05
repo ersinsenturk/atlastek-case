@@ -1,7 +1,11 @@
 <template>
-  <main class="bg-gray-200">
-    <h1 class="font-bold">Atlastek</h1>
+  <main class="bg-[#F6F7F9] text-gray-800 h-screen flex justify-center items-center">
+    <section class="w-[496px] max-w-full px-4 mx-auto">
+      <app-form />
+    </section>
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import AppForm from '@/components/tabs/form/AppForm.vue'
+</script>
