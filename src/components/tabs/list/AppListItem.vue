@@ -8,6 +8,9 @@
       <p>
         {{ item.description }}
       </p>
+      <p>
+        {{ $d(item.createdAt, 'long') }}
+      </p>
     </div>
     <div class="basis-12 flex justify-center items-center">
       <button

@@ -4,19 +4,25 @@
     <template v-if="type === 'textarea'">
       <textarea
         :name="name"
-        placeholder="Açıklama giriniz"
+        :id="name"
+        :placeholder="placeholder"
         :class="inputClasses"
         class="resize-none h-36"
       ></textarea>
     </template>
     <template v-else>
-      <input type="text" :name="name" placeholder="Başlık giriniz" :class="inputClasses" />
+      <input type="text" :name="name" :id="name" :placeholder="placeholder" :class="inputClasses" />
     </template>
   </div>
 </template>
 
 <script setup>
-const { type, label, name } = defineProps(['type', 'label', 'name'])
+const { type, label, name, placeholder } = defineProps({
+  type: String,
+  label: String,
+  name: String,
+  placeholder: String
+})
 const inputClasses =
   'block px-4 py-3 w-full border border-gray-200 rounded-lg outline-none focus:border-gray-300'
 </script>

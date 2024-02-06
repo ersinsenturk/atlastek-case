@@ -3,10 +3,13 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 import { useAppToast } from '@/composables/useAppToast'
 const { toastSuccess, toastError } = useAppToast()
+import { useI18n } from 'vue-i18n'
 
 const apiUrl = import.meta.env.VITE_API_URL
 
 export const useListStore = defineStore('list', () => {
+  const { t } = useI18n()
+
   const list = ref([])
   const pending = ref(false)
 
@@ -16,7 +19,7 @@ export const useListStore = defineStore('list', () => {
       const { data } = await axios.get(apiUrl)
       list.value = data
     } catch (error) {
-      toastError('Listeleme sırasında bir hata oluştu.')
+      toastError(t('notification.listingError'))
     } finally {
       pending.value = false
     }
@@ -29,9 +32,9 @@ export const useListStore = defineStore('list', () => {
         ...newItem
       })
       fetchList()
-      toastSuccess('Bilgiler başarılı bir şekilde kaydedildi.')
+      toastSuccess(t('notification.addSuccess'))
     } catch (error) {
-      toastError('Kaydetme sırasında bir hata oluştu.')
+      toastError(t('notification.addError'))
     } finally {
       pending.value = false
     }
@@ -42,9 +45,9 @@ export const useListStore = defineStore('list', () => {
     try {
       await axios.delete(`${apiUrl}/${id}`)
       fetchList()
-      toastSuccess('Bilgiler başarılı bir şekilde silindi.')
+      toastSuccess(t('notification.deleteSuccess'))
     } catch (error) {
-      toastError('Silinme sırasında bir hata oluştu.')
+      toastError(t('notification.deleteError'))
     } finally {
       pending.value = false
     }

@@ -15,6 +15,7 @@
         {{ title }}
       </li>
     </ul>
+
     <keep-alive>
       <component :is="tabsContent[selectedTab]"></component>
     </keep-alive>
@@ -22,12 +23,16 @@
 </template>
 
 <script setup>
+import { computed, ref } from 'vue'
 import AppForm from './form/AppForm.vue'
 import AppList from './list/AppList.vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
-import { ref } from 'vue'
+const addTabTitle = computed(() => t('tab.add'))
+const listTabTitle = computed(() => t('tab.list'))
 
-const tabsTitle = ['Ekle', 'Listele']
+const tabsTitle = computed(() => [addTabTitle.value, listTabTitle.value])
 const tabsContent = [AppForm, AppList]
 const selectedTab = ref(0)
 </script>
