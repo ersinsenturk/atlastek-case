@@ -1,9 +1,9 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { useI18n } from 'vue-i18n'
 import { useAppToast } from '@/composables/useAppToast'
 const { toastSuccess, toastError } = useAppToast()
-import { useI18n } from 'vue-i18n'
 
 const apiUrl = import.meta.env.VITE_API_URL
 

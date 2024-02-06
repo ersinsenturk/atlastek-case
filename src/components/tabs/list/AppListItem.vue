@@ -27,7 +27,7 @@
 <script setup>
 import DeleteIcon from '@/components/icons/DeleteIcon.vue'
 
-const { item, pending } = defineProps({ item: { type: Object }, pending: { type: Boolean } })
+const { item, pending } = defineProps({ item: Object, pending: Boolean })
 const emits = defineEmits(['handleDelete'])
 </script>
 
